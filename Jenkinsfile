@@ -1,20 +1,20 @@
-node{
+pipeline{
 
+    agent any
+    stages{
     stage('SCM Checkout')
     {
-        checkout scm
+        steps{
+        git 'https://github.com/Sonal0409/phpmysql-app.git'
+    }
     }
     
     stage('Run Docker Compose File')
     {
+        steps{
         sh 'docker-compose build'
         sh 'docker-compose up -d'
     }
-    stage('PUSH image to Docker Hub')
-    {
-        withDockerRegistry([ credentialsId: "dockerHub", url: "" ])
-        {
-        sh 'docker push vardhanns/phpmysql_app'
-        }
     }
+}
 }
