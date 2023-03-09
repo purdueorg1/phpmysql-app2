@@ -5,7 +5,7 @@ pipeline{
     stage('SCM Checkout')
     {
         steps{
-        git 'https://github.com/Sonal0409/phpmysql-app.git'
+        git 'https://github.com/ashishdubey195/phpmysql-app.git'
     }
     }
     
